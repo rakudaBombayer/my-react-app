@@ -10,7 +10,7 @@ function Line() {
     .orderBy("createdAt")
     .limit(50)
     .onSnapshot((snapshot) => {
-      setMessages(snapshot.docs.map((doc) => doc.data()))
+      setMessages(snapshot.docs.map((doc) => doc.data()));
       });
   }, []);
   return (
@@ -18,14 +18,14 @@ function Line() {
       {console.log(messages)}
       <SignOut />
       <div className="msgs">
-        {messages.map(({id, text, photoURL, uid}) => {
+        {messages.map(({id, text, photoURL, uid }) => (
           <div>
             <div key={id}>
-              <img  src={photoURL} alt=""/>
+              <img src={photoURL} alt=""/>
               <p>{text}</p>
             </div>
           </div>
-        })}
+        ))}
       </div>
     </div>
   );
