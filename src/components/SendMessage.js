@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {db, auth } from "../firebase.js";
 import firebase from "firebase/compat/app";
+import { Input } from '@mui/material';
 
 function SendMessage() {
   const [message, setMessage] = useState("");
@@ -15,13 +16,14 @@ function SendMessage() {
       uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
+    setMessage("");
   }
   return (
     <div>
       <form onSubmit={SendMessage}>
-      <input className="sendMsg" type="text" placeholder='メッセージを入力してください' value={message} onChange={(e) => setMessage(e.target.value)}/>
-      </form>
-    </div>
+        <Input className="sendMsg" type="text" placeholder='メッセージを入力してください' value={message} onChange={(e) => setMessage(e.target.value)}/>
+        </form>
+      </div>
   )
 }
 
