@@ -23,10 +23,10 @@ function Line() {
         {messages.map(({ id, text, photoURL, uid }) => (
           <div>
             <div
-              key={id}
               className={`msg ${
                 uid === auth.currentUser.uid ? "sent" : "received"
               }`}
+              key={id}
             >
               <img src={photoURL} alt="" />
               <p>{text}</p>
