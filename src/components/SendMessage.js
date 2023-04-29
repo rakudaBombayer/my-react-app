@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {db, auth } from "../firebase.js";
 import firebase from "firebase/compat/app";
 import { Input } from '@mui/material';
+import SendIcon  from '@mui/icons-material/Send';
 
 function SendMessage() {
   const [message, setMessage] = useState("");
@@ -22,6 +23,7 @@ function SendMessage() {
     <div>
       <form onSubmit={SendMessage}>
         <Input className="sendMsg" type="text" placeholder='メッセージを入力してください' value={message} onChange={(e) => setMessage(e.target.value)}/>
+        <SendIcon />
         </form>
       </div>
   )
